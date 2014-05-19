@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Glorious Pattern Matcher</title>
+</head>
+<body>
+  <h1>Glorious Pattern Matcher</h1>
+  <p>In the left box, type a series of characters representing an ordered pattern. In the right box, type a series of words separated by spaces. The <strong>test</strong> button will let you know if the words match the pattern specified in the first box.</p>
+  <h2>Examples</h2>
+  <p><strong>Box 1:</strong> AAA</p>
+  <p><strong>Box 2:</strong> Ho Ho Ho</p>
+  <p><strong>Result:</strong> Match</p>
+
+  <p><strong>Box 1:</strong> AAA</p>
+  <p><strong>Box 2:</strong> Oh No No</p>
+  <p><strong>Result:</strong> No match</p>
+
+  <p><strong>Box 1:</strong> ABBA</p>
+  <p><strong>Box 2:</strong> Knowing Me Knowing You</p>
+  <p><strong>Result:</strong> No match</p>
+
+  <p><strong>Box 1:</strong> ABBA</p>
+  <p><strong>Box 2:</strong> Knowing Me Me Knowing</p>
+  <p><strong>Result:</strong> Match</p>
+
+
+  <input type="text" id="pattern1">
+  <input type="text" id="data1">
+  <button id="test1">Test</button>
+  <p id="result1"></p>
+
+  <p><strong>Box 1:</strong> ACDC</p>
+  <p><strong>Box 2:</strong> I'mT.N.T.</p>
+  <p><strong>Result:</strong> Match</p>
+
+  <input type="text" id="pattern2">
+  <input type="text" id="data2">
+  <button id="test2">Test</button>
+  <p id="result2"></p>
+
+  <script src="main.js"></script>
+  <script>
+    ;(function(document) {
+      var domNodes = {
+        pattern1: document.getElementById('pattern1'),
+        pattern2: document.getElementById('pattern2'),
+        data1: document.getElementById('data1'),
+        data2: document.getElementById('data2'),
+        test1: document.getElementById('test1'),
+        test2: document.getElementById('test2'),
+        result1: document.getElementById('result1'),
+        result2: document.getElementById('result2')
+      }
+      domNodes.test1.addEventListener('click', function() {
+        var pattern = domNodes.pattern1.value;
+        var data = domNodes.data1.value;
+        domNodes.result1.textContent = match(pattern, data) ? 'Match' : 'No match';
+      });
+      domNodes.test2.addEventListener('click', function() {
+        var pattern = domNodes.pattern2.value;
+        var data = domNodes.data2.value;
+        domNodes.result2.textContent = match2(pattern, data) ? 'Match' : 'No match';
+      });
+    })(document);
+  </script>
+</body>
+</html>
