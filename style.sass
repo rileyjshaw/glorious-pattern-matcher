@@ -5,7 +5,7 @@ $cblue: #88bbee
 body
   width: 61.803398875%
   margin: auto
-  font-family: sans-serif
+  font-family: Droid Sans, sans-serif
   background: $clight
 body, input
   color: $cdark
@@ -48,6 +48,7 @@ input, button
   box-sizing: border-box
   border: 0
   outline: 0
+  font-family: Droid Sans, sans-serif
   font-size: 38px
 
 input
@@ -61,6 +62,15 @@ button
   width: 14%
   color: $clight
   background: $cblue
+  cursor: pointer
+
+  span
+    display: inline-block
+    padding-bottom: 3px
+
+  &:hover span
+    -webkit-animation: spin 2s infinite linear
+    animation: spin 2s infinite linear
 
 small
   display: block
@@ -74,7 +84,7 @@ a
   position: relative
   left: -100%
   overflow: hidden
-  transition: max-height .2s, left .2s .4s
+  transition: max-height 0.2s, left 0.2s 0.4s
 
   &.match, &.nomatch
     max-height: 2em
@@ -127,3 +137,15 @@ a
 
   &:after
     clear: both
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(359deg)
+
+@-webkit-keyframes spin
+  0%
+    -webkit-transform: rotate(0deg)
+  100%
+    -webkit-transform: rotate(359deg)

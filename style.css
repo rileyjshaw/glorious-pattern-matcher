@@ -2,7 +2,7 @@
 body {
   width: 61.8034%;
   margin: auto;
-  font-family: sans-serif;
+  font-family: Droid Sans, sans-serif;
   background: white; }
 
 body, input {
@@ -44,6 +44,7 @@ input, button {
   box-sizing: border-box;
   border: 0;
   outline: 0;
+  font-family: Droid Sans, sans-serif;
   font-size: 38px; }
 
 input {
@@ -56,7 +57,14 @@ input {
 button {
   width: 14%;
   color: white;
-  background: #88bbee; }
+  background: #88bbee;
+  cursor: pointer; }
+  button span {
+    display: inline-block;
+    padding-bottom: 3px; }
+  button:hover span {
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear; }
 
 small {
   display: block;
@@ -112,3 +120,16 @@ a {
   display: table; }
 .clearfix:after {
   clear: both; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+
+  100% {
+    transform: rotate(359deg); } }
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(359deg); } }
