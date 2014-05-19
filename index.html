@@ -86,6 +86,8 @@
       function toggleOpen() {
         this.className = this.className ? '' : 'open';
       }
+      domNodes.exampleToggle1.addEventListener('click', toggleOpen);
+      domNodes.exampleToggle2.addEventListener('click', toggleOpen);
       domNodes.test1.addEventListener('submit', function(event) {
         var pattern = domNodes.pattern1.value;
         var data = domNodes.data1.value;
