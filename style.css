@@ -1,0 +1,114 @@
+@charset "UTF-8";
+body {
+  width: 61.8034%;
+  margin: auto;
+  font-family: sans-serif;
+  background: white; }
+
+body, input {
+  color: #443b33; }
+
+h1, h2, p, input, button {
+  margin-top: 1em;
+  line-height: 1.61803em; }
+
+h1 {
+  font-size: 62px;
+  text-shadow: 0 6px #dddddd, 0 12px #f1f1f1; }
+
+h2, a {
+  color: #88bbee; }
+
+h2 {
+  font-size: 15px;
+  cursor: pointer; }
+  h2:after {
+    content: "▼";
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    margin-left: 1em;
+    font-size: 9px;
+    -webkit-transition: -webkit-transform 0.2s; }
+  h2.open:after {
+    -webkit-transform: rotate(180deg); }
+
+p, small {
+  font-size: 24px; }
+
+input, button {
+  float: left;
+  height: 1.61803em;
+  line-height: 1em;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  font-size: 38px; }
+
+input {
+  width: 35%;
+  margin-right: 8%;
+  border-top: 8px solid #665d55;
+  color: #dddddd;
+  background: #443b33; }
+
+button {
+  width: 14%;
+  color: white;
+  background: #88bbee; }
+
+small {
+  display: block;
+  margin: 3em 0 4em; }
+
+a {
+  text-decoration: none; }
+
+#result1, #result2 {
+  max-height: 0;
+  position: relative;
+  left: -100%;
+  overflow: hidden;
+  transition: max-height 0.2s, left 0.2s 0.4s; }
+  #result1.match, #result1.nomatch, #result2.match, #result2.nomatch {
+    max-height: 2em;
+    left: 0; }
+
+.match {
+  color: #66ee99; }
+
+.nomatch {
+  color: #ee88bb; }
+
+.drawer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.8s; }
+  .open + .drawer {
+    max-height: 1000px; }
+  .drawer p {
+    display: inline-block;
+    padding: 0.24em 0.61em; }
+  .drawer .box {
+    position: relative;
+    margin-right: 1em;
+    color: white;
+    background: #887f77; }
+  .drawer div:nth-of-type(1) p:before {
+    position: absolute;
+    top: -28px;
+    left: 0px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #888888; }
+  .drawer div:nth-of-type(1) p:nth-of-type(1):before {
+    content: "Box 1"; }
+  .drawer div:nth-of-type(1) p:nth-of-type(2):before {
+    content: "Box 2"; }
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+.clearfix:after {
+  clear: both; }

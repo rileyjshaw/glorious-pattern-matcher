@@ -3,64 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <title>Glorious Pattern Matcher</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Glorious Pattern Matcher</h1>
-  <p>In the left box, type a series of characters representing an ordered pattern. In the right box, type a series of words separated by spaces. The <strong>test</strong> button will let you know if the words match the pattern specified in the first box.</p>
-  <h2>Examples</h2>
-  <p><strong>Box 1:</strong> AAA</p>
-  <p><strong>Box 2:</strong> Ho Ho Ho</p>
-  <p><strong>Result:</strong> Match</p>
+  <p>In the left box, type a series of characters representing an ordered pattern. In the right box, type a series of words separated by spaces. The <strong>⚙</strong> button will let you know if the words match the pattern specified in the first box.</p>
 
-  <p><strong>Box 1:</strong> AAA</p>
-  <p><strong>Box 2:</strong> Oh No No</p>
-  <p><strong>Result:</strong> No match</p>
+  <h2 id="exampleToggle1">Examples</h2>
+  <div id="exampleContent1" class="drawer">
+    <div>
+      <p class="box">AAA</p>
+      <p class="box">Ho Ho Ho</p>
+      <p class="match">Match</p>
+    </div>
 
-  <p><strong>Box 1:</strong> ABBA</p>
-  <p><strong>Box 2:</strong> Knowing Me Knowing You</p>
-  <p><strong>Result:</strong> No match</p>
+    <div>
+      <p class="box">AAA</p>
+      <p class="box">Oh No No</p>
+      <p class="nomatch">No match</p>
+    </div>
 
-  <p><strong>Box 1:</strong> ABBA</p>
-  <p><strong>Box 2:</strong> Knowing Me Me Knowing</p>
-  <p><strong>Result:</strong> Match</p>
+    <div>
+      <p class="box">ABBA</p>
+      <p class="box">Knowing Me Knowing You</p>
+      <p class="nomatch">No match</p>
+    </div>
 
+    <div>
+      <p class="box">ABBA</p>
+      <p class="box">Knowing Me Me Knowing</p>
+      <p class="match">Match</p>
+    </div>
+  </div>
 
-  <input type="text" id="pattern1">
-  <input type="text" id="data1">
-  <button id="test1">Test</button>
+  <form id="test1" class="clearfix" autocomplete="off">
+    <input type="text" id="pattern1">
+    <input type="text" id="data1">
+    <button type="submit" id="test1">⚙</button>
+  </form>
   <p id="result1"></p>
 
-  <p><strong>Box 1:</strong> ACDC</p>
-  <p><strong>Box 2:</strong> I'mT.N.T.</p>
-  <p><strong>Result:</strong> Match</p>
+  <h1>Mega-Glorious Pattern Matcher</h1>
+  <p>Same drill as before, but this time omit the spaces in the right box. Hardcore.</p>
 
-  <input type="text" id="pattern2">
-  <input type="text" id="data2">
-  <button id="test2">Test</button>
+  <h2 id="exampleToggle2">Examples</h2>
+
+  <div id="exampleContent2" class="drawer">
+    <div>
+      <p class="box">ACDC</p>
+      <p class="box">I'mT.N.T.</p>
+      <p class="match">Match</p>
+    </div>
+  </div>
+
+  <form id="test2" class="clearfix" autocomplete="off">
+    <input type="text" id="pattern2">
+    <input type="text" id="data2">
+    <button type="submit">⚙</button>
+  </form>
+
   <p id="result2"></p>
+
+  <small>by <a href="rileyjshaw.com">rileyjshaw</a></small>
 
   <script src="main.js"></script>
   <script>
     ;(function(document) {
       var domNodes = {
+        exampleToggle1: document.getElementById('exampleToggle1'),
+        exampleToggle2: document.getElementById('exampleToggle2'),
+        exampleContent1: document.getElementById('exampleContent1'),
+        exampleContent2: document.getElementById('exampleContent2'),
+        test1: document.getElementById('test1'),
+        test2: document.getElementById('test2'),
         pattern1: document.getElementById('pattern1'),
         pattern2: document.getElementById('pattern2'),
         data1: document.getElementById('data1'),
         data2: document.getElementById('data2'),
-        test1: document.getElementById('test1'),
-        test2: document.getElementById('test2'),
         result1: document.getElementById('result1'),
         result2: document.getElementById('result2')
       }
-      domNodes.test1.addEventListener('click', function() {
+      function toggleOpen() {
+        this.className = this.className ? '' : 'open';
+      }
+      domNodes.test1.addEventListener('submit', function(event) {
         var pattern = domNodes.pattern1.value;
         var data = domNodes.data1.value;
-        domNodes.result1.textContent = match(pattern, data) ? 'Match' : 'No match';
+        if (match(pattern, data)) {
+          domNodes.result1.textContent = 'Match';
+          domNodes.result1.className = 'match';
+        } else {
+          domNodes.result1.textContent = 'No match';
+          domNodes.result1.className = 'nomatch';
+        }
+        event.preventDefault();
+        return false;
       });
-      domNodes.test2.addEventListener('click', function() {
+      domNodes.test2.addEventListener('submit', function(event) {
         var pattern = domNodes.pattern2.value;
         var data = domNodes.data2.value;
-        domNodes.result2.textContent = match2(pattern, data) ? 'Match' : 'No match';
+        if (match2(pattern, data)) {
+          domNodes.result2.textContent = 'Match';
+          domNodes.result2.className = 'match';
+        } else {
+          domNodes.result2.textContent = 'No match';
+          domNodes.result2.className = 'nomatch';
+        }
+        event.preventDefault();
+        return false;
       });
     })(document);
   </script>
