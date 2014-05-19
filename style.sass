@@ -169,3 +169,29 @@ a
 @media (max-width: 900px)
   body
     width: 90.4508497187%
+
+@media (max-width: 720px)
+  .drawer
+    div
+      margin-bottom: 38px
+
+    p
+      display: block
+
+      &.match, &.nomatch
+        margin-top: -0.5em
+        padding: 0
+
+      &:before
+        position: absolute
+        top: -28px
+        left: 0px
+        font-size: 12px
+        font-weight: bold
+        color: #888
+
+      &:nth-of-type(1):before
+        content: 'Box 1'
+
+      &:nth-of-type(2):before
+        content: 'Box 2'
