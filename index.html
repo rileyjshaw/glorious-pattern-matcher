@@ -89,32 +89,39 @@
       }
       domNodes.exampleToggle1.addEventListener('click', toggleOpen);
       domNodes.exampleToggle2.addEventListener('click', toggleOpen);
+
       domNodes.test1.addEventListener('submit', function(event) {
         var pattern = domNodes.pattern1.value;
         var data = domNodes.data1.value;
-        if (match(pattern, data)) {
+
+        event.preventDefault();
+
+        if (glorious.match(pattern, data)) {
           domNodes.result1.textContent = 'Match';
           domNodes.result1.className = 'match';
         } else {
           domNodes.result1.textContent = 'No match';
           domNodes.result1.className = 'nomatch';
         }
-        event.preventDefault();
         return false;
       });
+
       domNodes.test2.addEventListener('submit', function(event) {
         var pattern = domNodes.pattern2.value;
         var data = domNodes.data2.value;
-        if (match2(pattern, data)) {
+
+        event.preventDefault();
+
+        if (glorious.megamatch(pattern, data)) {
           domNodes.result2.textContent = 'Match';
           domNodes.result2.className = 'match';
         } else {
           domNodes.result2.textContent = 'No match';
           domNodes.result2.className = 'nomatch';
         }
-        event.preventDefault();
         return false;
       });
+
     })(document);
   </script>
 </body>
