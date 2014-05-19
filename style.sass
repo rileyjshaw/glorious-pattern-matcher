@@ -7,7 +7,7 @@ body
   max-width: 820px
   margin: auto
   font-family: Droid Sans, sans-serif
-  background: $clight
+  background-color: $clight
 
 body, input
   color: $cdark
@@ -34,10 +34,17 @@ h2
     display: inline-block
     margin-left: 1em
     font-size: 9px
-    -webkit-transition: -webkit-transform 0.2s
+    -moz-transition: -moz-transform 0.2s;
+    -o-transition: -o-transform 0.2s;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s
 
   &.open:after
-    -webkit-transform: rotate(180deg)
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
 
 p, small
   font-size: 24px
@@ -46,7 +53,6 @@ input, button
   float: left
   height: 1.61803398875em
   line-height: 1em
-  vertical-align: middle
   box-sizing: border-box
   border: 0
   outline: 0
@@ -58,12 +64,12 @@ input
   margin-right: 8%
   border-top: 8px solid $cdark + #222
   color: $clight - #222
-  background: $cdark
+  background-color: $cdark
 
 button
   width: 14%
   color: $clight
-  background: $cblue
+  background-color: $cblue
   cursor: pointer
 
   span
@@ -71,6 +77,8 @@ button
     padding-bottom: 3px
 
   &:hover span
+    -moz-animation: spin 2s infinite linear
+    -o-animation: spin 2s infinite linear
     -webkit-animation: spin 2s infinite linear
     animation: spin 2s infinite linear
 
@@ -86,6 +94,9 @@ a
   position: relative
   left: -100%
   overflow: hidden
+  -moz-transition: max-height 0.2s, left 0.2s 0.4s
+  -o-transition: max-height 0.2s, left 0.2s 0.4s
+  -webkit-transition: max-height 0.2s, left 0.2s 0.4s
   transition: max-height 0.2s, left 0.2s 0.4s
 
   &.match, &.nomatch
@@ -101,7 +112,10 @@ a
 .drawer
   overflow: hidden
   max-height: 0
-  transition: max-height .8s
+  -moz-transition: max-height 0.8s
+  -o-transition: max-height 0.8s
+  -webkit-transition: max-height 0.8s
+  transition: max-height 0.8s
 
   .open + &
     max-height: 1000px
@@ -114,7 +128,7 @@ a
     position: relative
     margin-right: 1em
     color: $clight
-    background: $cdark + #444
+    background-color: $cdark + #444
 
   div:nth-of-type(1) p
     &:before
@@ -140,17 +154,17 @@ a
   &:after
     clear: both
 
-@keyframes spin
-  0%
-    transform: rotate(0deg)
-  100%
-    transform: rotate(359deg)
-
 @-webkit-keyframes spin
   0%
     -webkit-transform: rotate(0deg)
   100%
     -webkit-transform: rotate(359deg)
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(359deg)
 
 @media (max-width: 900px)
   body
