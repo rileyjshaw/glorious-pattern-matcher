@@ -38,7 +38,7 @@ var glorious = (function() {
       }
     }
     return true;
-  }
+  };
 
 
   // takes a string and returns an array of substrings.
@@ -96,7 +96,7 @@ var glorious = (function() {
       }
 
       return false;
-    };
+    }
 
     return loopThroughChars(0);
   }
@@ -126,7 +126,7 @@ var glorious = (function() {
     }
 
     return tryPossibleConfigurations(coefficients, patternLength, dataLength, splitAndMatch);
-  }
+  };
 
 
   return exports;
